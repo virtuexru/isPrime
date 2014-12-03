@@ -1,6 +1,6 @@
-import math
+def isPrime(num, primed):
+  all(x % num == 0 for x in primed)
 
-def isPrime(num):
   if num == 2:
     return True
   elif num < 2 or not num % 2 or (num != 3 and not num % 3):
@@ -18,7 +18,7 @@ def genPrimes(n):
   testNum = 3
 
   while count < n:
-    if isPrime(testNum):
+    if isPrime(testNum, primes):
       primes.append(testNum)
       count += 1
     testNum += 2
@@ -27,7 +27,9 @@ def genPrimes(n):
 
 import time
 start = time.time()
+
 all_primes = genPrimes(1000)
 print all_primes
 print sum(all_primes)
+
 print time.time()-start, 'seconds.'
